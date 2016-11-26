@@ -37,7 +37,7 @@ public:
   // TODO figure out the best way to have these defaults configurable
   Switch& b(uint8_t pin, bool activeLow=false, bool pullUp=false,
     uint32_t debounceDelay=50);
-  Switch& r(uint8_t pin, bool activeLow=false);
+  Switch& r(uint8_t pin, bool activeLow=true);
 
   void callback(Button* b);
 
