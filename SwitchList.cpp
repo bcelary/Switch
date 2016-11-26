@@ -21,6 +21,19 @@ Switch& SwitchList::add() {
   }
 }
 
+Switch* SwitchList::find(uint8_t id) {
+  Switch *s = m_head;
+
+  while (s) {
+    if (s->getId() == id) {
+      return s;
+    }
+    s = s->next();
+  }
+
+  return NULL;
+}
+
 uint8_t SwitchList::poll() {
   uint8_t updatedSwitches = 0;
   Switch* s = m_head;

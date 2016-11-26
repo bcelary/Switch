@@ -11,6 +11,7 @@ public:
 
   Switch& add();
   Switch* head() const { return m_head; }
+  Switch* find(uint8_t id);
   uint8_t poll();
 
 private:
