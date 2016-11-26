@@ -43,11 +43,27 @@ void setup() {
   Serial.begin(115200);
   delay(100);
 
-  // a way to configure the switches.
-  // no check is being performed whether buttons or relays are used in more
+  // Below is a way to configure the switches.
+
+  Serial.println("INIT");
+  // No check is being performed whether buttons or relays are used in more
   // than 1 switch. It should still work but the memory will be allocated
   // multiple times.
-  Serial.println("INIT");
+
+  // Start adding switches. Each line add another switch which is populated
+  // with buttons (b) and relays (r). In order to do anything when the change
+  // happens a callback (cb) needs to be added. It could be the function:
+  // void cb(Switch *s, Button *b), cb in that case or an address to a
+  // SwitchCallbackFunctionHandler class as shown below. The later is more
+  // efficient as it won't create duplicate handler class objects.
+
+  // You can adjust some relays or buttons as you go by adding optional values:
+  //
+  // b(pin, activeLow, pullUp, debounceDelay)
+  // r(pin, activeLow)
+  //
+  // The defaults need to be changed in the source code of the lib for now.
+
   sls.add().b(26).r(46).cb(&h);
   sls.add().b(27).r(47).cb(&h);
   sls.add().b(28).b(29).r(48).cb(&h);
@@ -55,6 +71,7 @@ void setup() {
   sls.add().b(31).b(32).r(50).r(51).cb(&h);
   sls.add().b(33).cb(&h);
   sls.add().b(40).cb(&h);
+
   Serial.println("INIT (DONE)");
 }
 
