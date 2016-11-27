@@ -7,15 +7,18 @@
 #include "RelayList.h"
 #include "SwitchCallbackFunctionHandler.h"
 
+#define MAX_NAME_SIZE 16;
+
 class Switch {
 public:
-  Switch(uint8_t state = 0)
+  Switch(const char *name="")
       : m_next(0)
       , m_callback(0)
-      , m_state(state)
+      , m_state(0)
       , m_id(ID++)
       , m_bls(new ButtonList())
       , m_rls(new RelayList())
+      , m_name(name)
   {}
 
   void init(uint8_t state) {
@@ -27,6 +30,7 @@ public:
     SwitchCallbackFunctionHandler::SwitchCallbackFunction
     callback);
   uint8_t getState() const { return m_state; }
+  const char *getName() const { return m_name; }
   uint8_t getId() const { return m_id; }
   ButtonList *getBls() const { return m_bls; }
   RelayList *getRls() const { return m_rls; }
@@ -35,7 +39,7 @@ public:
   void setNext(Switch* next) { m_next = next; }
 
   // TODO figure out the best way to have these defaults configurable
-  Switch& b(uint8_t pin, bool activeLow=false, bool pullUp=false,
+  Switch& b(uint8_t pin, bool activeLow=false, bool pullUp=true,
     uint32_t debounceDelay=50);
   Switch& r(uint8_t pin, bool activeLow=true);
 
@@ -55,6 +59,7 @@ private:
   const uint8_t m_id;
   ButtonList *m_bls;
   RelayList *m_rls;
+  const char* m_name;
 };
 
 #endif // ifndef __SWITCH_H

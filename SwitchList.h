@@ -9,7 +9,7 @@ class SwitchList {
 public:
   SwitchList() : m_head(0) {}
 
-  Switch& add();
+  Switch& add(const char* name="");
   Switch* head() const { return m_head; }
   Switch* find(uint8_t id);
   uint8_t poll();
