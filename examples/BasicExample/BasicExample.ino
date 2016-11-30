@@ -64,13 +64,13 @@ void setup() {
   //
   // The defaults need to be changed in the source code of the lib for now.
 
-  sls.add().b(26).r(46).cb(&h);
-  sls.add().b(27).r(47).cb(&h);
-  sls.add().b(28).b(29).r(48).cb(&h);
-  sls.add().b(30).r(47).r(49).cb(&h);
-  sls.add().b(31).b(32).r(50).r(51).cb(&h);
-  sls.add().b(33).cb(&h);
-  sls.add().b(40).cb(&h);
+  sls.add("Switch 1").b(26).r(46).cb(&h);
+  sls.add("Switch 2").b(27).r(47).cb(&h);
+  sls.add("Switch 3").b(28).b(29).r(48).cb(&h);
+  sls.add("Switch 4").b(30).r(47).r(49).cb(&h);
+  sls.add("Switch 5").b(31).b(32).r(50).r(51).cb(&h);
+  sls.add("Switch 6").b(33).cb(&h);
+  sls.add("Switch 7").b(40).cb(&h);
 
   Serial.println("INIT (DONE)");
 }
