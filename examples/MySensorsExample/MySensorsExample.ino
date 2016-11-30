@@ -15,7 +15,7 @@ void presentation()  {
 
   Switch *s = sls.head();
   while(s) {
-    present(s->getId(), S_BINARY);
+    present(s->getId(), S_BINARY, s->getName());
     s = s->next();
   }
 }
@@ -33,12 +33,12 @@ void cb(Switch *s, Button *b) {
 SwitchCallbackFunctionHandler h(cb);
 
 void setup() {
-  sls.add().b(26).r(46).cb(&h);
-  sls.add().b(27).r(47).cb(&h);
-  sls.add().b(28).b(29).r(48).cb(&h);
-  sls.add().b(30).r(47).r(49).cb(&h);
-  sls.add().b(31).b(32).r(50).r(51).cb(&h);
-  sls.add().b(33).cb(&h);
+  sls.add("optional").b(26).r(46).cb(&h);
+  sls.add("name").b(27).r(47).cb(&h);
+  sls.add("used").b(28).b(29).r(48).cb(&h);
+  sls.add("by").b(30).r(47).r(49).cb(&h);
+  sls.add("mysensors").b(31).b(32).r(50).r(51).cb(&h);
+  sls.add("presentation").b(33).cb(&h);
   sls.add().b(40).cb(&h);
 }
 
