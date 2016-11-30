@@ -5,7 +5,7 @@
 
 class Relay {
 public:
-  Relay(uint8_t pin=0, bool activeLow=false);
+  Relay(uint8_t pin, bool activeLow);
   virtual ~Relay() {};
 
   /*!

@@ -6,14 +6,9 @@
 class Button
 {
 public:
-  Button(uint8_t pin=0, bool activeLow=false,
-         bool pullUp=false, uint32_t debounceDelay=50);
+  Button(uint8_t pin, bool activeLow,
+         bool pullUp, uint32_t debounceDelay);
   virtual ~Button() {};
-
-  /*!
-   * \brief Initializes HW pin according to settings
-   */
-  void init(uint8_t pin, bool pullUp);
 
   /*!
    * \brief Sets the debounce delay time.

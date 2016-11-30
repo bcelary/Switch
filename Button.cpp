@@ -15,12 +15,6 @@ Button::Button(uint8_t    pin,
     , m_pullUp(pullUp)
     , m_next(0)
 {
-  if (pin) {
-    init(pin, pullUp);
-  }
-}
-
-void Button::init(uint8_t pin, bool pullUp) {
   if (pullUp) pinMode(pin, INPUT_PULLUP);
   else pinMode(pin, INPUT);
 }
