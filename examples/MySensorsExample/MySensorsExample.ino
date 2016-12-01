@@ -1,6 +1,10 @@
 #include <Arduino.h>
 
 // TODO Add your MySensor Configuration
+
+// Timeout [ms] for wait / request calls (for restoring previous state)
+#define MY_CFG_STATUS_REQ_TO 200
+
 #include <MySensors.h>
 
 #include "SwitchList.h"
