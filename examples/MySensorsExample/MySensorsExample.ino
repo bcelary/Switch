@@ -42,7 +42,7 @@ void setup() {
   // b(pin)
   //     adds a Button attached to a pin.
   // r(pin)
-  //     adds a Relay under attached to a pin
+  //     adds a Relay attached to a pin
   sls.add("optional").b(26).r(46).cb(&h);
   sls.add("name").b(27).r(47).cb(&h);
   sls.add("used").b(28).b(29).r(48).cb(&h);
