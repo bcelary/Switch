@@ -64,6 +64,15 @@ void setup() {
   //
   // The defaults need to be changed in the source code of the lib for now.
 
+  // In a nutshell:
+  //
+  // add("optional name"):
+  //     adds a new switch instance with an optional name.
+  // b(pin)
+  //     adds a Button attached to a pin.
+  // r(pin)
+  //     adds a Relay attached to a pin
+
   sls.add("Switch 1").b(26).r(46).cb(&h);
   sls.add("Switch 2").b(27).r(47).cb(&h);
   sls.add("Switch 3").b(28).b(29).r(48).cb(&h);
