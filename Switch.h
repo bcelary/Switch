@@ -11,7 +11,7 @@
 
 class Switch {
 public:
-  Switch(const char *name="")
+  Switch(const char *name="", bool is_light=true)
       : m_next(0)
       , m_callback(0)
       , m_state(0)
@@ -19,6 +19,7 @@ public:
       , m_bls(new ButtonList())
       , m_rls(new RelayList())
       , m_name(name)
+      , m_is_light(is_light)
   {}
 
   void init(uint8_t state) {
@@ -35,6 +36,7 @@ public:
   ButtonList *getBls() const { return m_bls; }
   RelayList *getRls() const { return m_rls; }
   Switch *next() const { return m_next; }
+  bool getIsLight() const { return m_is_light; }
 
   void setNext(Switch* next) { m_next = next; }
 
@@ -60,6 +62,7 @@ private:
   ButtonList *m_bls;
   RelayList *m_rls;
   const char* m_name;
+  bool m_is_light;
 };
 
 #endif // ifndef __SWITCH_H

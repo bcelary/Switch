@@ -1,8 +1,8 @@
 #include "SwitchList.h"
 
 // Append new switch element (new HEAD)
-Switch& SwitchList::add(const char* name) {
-  Switch *n = new Switch(name);
+Switch& SwitchList::add(const char* name, bool isLight) {
+  Switch *n = new Switch(name, isLight);
   if (m_head) {
     // list not empty
     Switch *s = m_head;
